@@ -7,10 +7,14 @@ public class Desafio {
     // declaração do scanner para entrada de dados
     public static Scanner scanner = new Scanner(System.in);
 
-    public static void lancarNotas(List<String> nomes, int index, String avaliacao) {
+    private static List<Double> notasP1 = new ArrayList<>();
+    private static List<Double> notasP2 = new ArrayList<>();
+    private static List<Double> notasTrabalho = new ArrayList<>();
+
+    public static Double lancarNotas(List<String> nomes, int index, String avaliacao) {
         System.out.println("Digite a nota da [" + avaliacao + "] do aluno " + nomes.get(index));
         double nota = scanner.nextDouble();
-//        notas.add(nota);
+        return nota;
     }
 
     public static void main(String[] args) {
@@ -31,10 +35,16 @@ public class Desafio {
 
         // lançar as notas da prova 1
         for (int i = 0; i < tamanhoDaLista; i++) {
-            lancarNotas(nomes, i, "Prova 1");
-//            lancarNotas(nomes, "Prova 2");
-//            lancarNotas(nomes, "Trabalho");
+//            Double nota = lancarNotas(nomes, i, "Prova 1");
+//            notasP1.add(nota); // meio não otimizado
+            notasP1.add(lancarNotas(nomes, i, "Prova 1"));
+            notasP2.add(lancarNotas(nomes, i, "Prova 2"));
+            notasTrabalho.add(lancarNotas(nomes, i, "Trabalho"));
         }
+
+        System.out.println("Notas da Prova 1:" + notasP1);
+        System.out.println("Notas da Prova 2:" + notasP2);
+        System.out.println("Notas do Trabalho:" + notasTrabalho);
 
     }
 
