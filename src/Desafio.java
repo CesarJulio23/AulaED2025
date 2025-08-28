@@ -17,6 +17,20 @@ public class Desafio {
         return nota;
     }
 
+    public static List<Double> calcularMedias(List<Double> notasP1, List<Double> notasP2, List<Double> notasTrabalho) {
+        List<Double> medias = new ArrayList<>();
+        for (int i = 0; i < notasP1.size(); i++) {
+            Double nota1 = notasP1.get(i);
+            Double nota2 = notasP2.get(i);
+            Double notaT = notasTrabalho.get(i);
+
+            Double media = (nota1 + nota2 + notaT) / 3;
+            medias.add(media);
+        }
+
+        return medias;
+    }
+
     public static void main(String[] args) {
         System.out.println("Quantos alunos você deseja cadastrar?");
         int tamanhoDaLista = scanner.nextInt();
@@ -24,7 +38,6 @@ public class Desafio {
 
         List<String> nomes = new ArrayList<>();
         List<Double> notas = new ArrayList<>();
-        List<Double> medias = new ArrayList<>();
 
         for (int i = 0; i < tamanhoDaLista; i++) {
             System.out.println("Digite um nome:");
@@ -45,6 +58,9 @@ public class Desafio {
         System.out.println("Notas da Prova 1:" + notasP1);
         System.out.println("Notas da Prova 2:" + notasP2);
         System.out.println("Notas do Trabalho:" + notasTrabalho);
+
+        List<Double> medias = calcularMedias(notasP1, notasP2, notasTrabalho);
+        System.out.println("Medias: " + medias);
 
     }
 
