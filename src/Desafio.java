@@ -31,6 +31,23 @@ public class Desafio {
         return medias;
     }
 
+    public static List<String> verificarSituacao(List<Double> medias) {
+        List<String> situacoes = new ArrayList<>();
+        for (int i = 0; i < medias.size(); i++) {
+            Double media = medias.get(i);
+
+            if (media >= 7) {
+                situacoes.add("Aprovado");
+            } else if (media < 4) {
+                situacoes.add("Reprovado");
+            } else {
+                situacoes.add("Exame");
+            }
+        }
+
+        return situacoes;
+    }
+
     public static void main(String[] args) {
         System.out.println("Quantos alunos você deseja cadastrar?");
         int tamanhoDaLista = scanner.nextInt();
@@ -61,6 +78,9 @@ public class Desafio {
 
         List<Double> medias = calcularMedias(notasP1, notasP2, notasTrabalho);
         System.out.println("Medias: " + medias);
+
+        List<String> situacoes = verificarSituacao(medias);
+        System.out.println("Situações: " + situacoes);
 
     }
 
